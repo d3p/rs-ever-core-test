@@ -37,11 +37,11 @@ async fn main() {
         context.clone(),
         ParamsOfQuery {
             query: r#"query{info{version}}"#.to_string(),
-            variables: json!({}),
+            variables: Some(json!({})),
             ..Default::default()
         }
     )
     .await
     .unwrap();
-    dbg!(output);
+    dbg!(output.result);
 }
